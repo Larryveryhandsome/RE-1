@@ -24,7 +24,30 @@
         .highlight {
             background-color: yellow;
         }
+        .remarks {
+            width: 200px;
+        }
     </style>
+    <script>
+        function saveRemarks() {
+            const remarks = document.querySelectorAll(".remarks");
+            let data = {};
+            remarks.forEach((input, index) => {
+                data[index] = input.value;
+            });
+            localStorage.setItem("remarksData", JSON.stringify(data));
+        }
+        
+        function loadRemarks() {
+            const data = JSON.parse(localStorage.getItem("remarksData")) || {};
+            const remarks = document.querySelectorAll(".remarks");
+            remarks.forEach((input, index) => {
+                input.value = data[index] || "";
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", loadRemarks);
+    </script>
 </head>
 <body>
     <h2>物件列表</h2>
@@ -47,7 +70,7 @@
             <td class="highlight">狀圍中央路二段355巷18弄30號</td>
             <td>1588</td>
             <td><a href="https://www.google.com/maps?q=狀圍中央路二段355巷18弄30號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>壯圍邊間大地坪透天 翻新潛力無極限</td>
@@ -57,7 +80,7 @@
             <td>壯圍鄉壯六路30號</td>
             <td>699</td>
             <td><a href="https://www.google.com/maps?q=壯圍鄉壯六路30號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>壯圍國五旁大露臺設計師風格築田時尚美宅</td>
@@ -67,7 +90,7 @@
             <td>礁溪鄉育英路7號</td>
             <td>880</td>
             <td><a href="https://www.google.com/maps?q=礁溪鄉育英路7號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>🎀蘇菲看房🏠壯圍中道中學整新</td>
@@ -77,7 +100,7 @@
             <td>西後街95巷27號</td>
             <td>860</td>
             <td><a href="https://www.google.com/maps?q=西後街95巷27號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>壯圍古亭國小旁全新挑高農糧加工室</td>
@@ -87,7 +110,7 @@
             <td>宜蘭市復興路三段187號</td>
             <td>880</td>
             <td><a href="https://www.google.com/maps?q=宜蘭市復興路三段187號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>宜蘭市慈安路近東門夜市低總價</td>
@@ -96,8 +119,8 @@
             <td>賴R</td>
             <td>嵐峰路二段14之1號四樓</td>
             <td>858</td>
-            <td><a href="https://www.google.com/maps?q=慈安路70巷2弄52號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><a href="https://www.google.com/maps?q=嵐峰路二段14之1號" target="_blank">查看地圖</a></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>宜蘭文化中心蘭陽親家三房景觀華廈</td>
@@ -107,17 +130,17 @@
             <td>宜蘭市陽明三路50號五樓</td>
             <td>798</td>
             <td><a href="https://www.google.com/maps?q=宜蘭市陽明三路50號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
-            <td>宜蘭市 延平段 0894-0000 0895-0000 地號</td>
+            <td>宜蘭市延平段 0894-0000 0895-0000 地號</td>
             <td>農地</td>
             <td>延平段0894-0000 0895-0000</td>
             <td>許先生/趙小姐</td>
             <td>宜蘭市延平路42巷5弄2號</td>
             <td>-</td>
             <td><a href="https://www.google.com/maps?q=宜蘭市延平路42巷5弄2號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
         </tr>
         <tr>
             <td>宜蘭近火車站、轉運站低總價三房</td>
@@ -127,8 +150,8 @@
             <td>中興路316巷10號四樓</td>
             <td>588</td>
             <td><a href="https://www.google.com/maps?q=中興路316巷10號" target="_blank">查看地圖</a></td>
-            <td class="remarks"></td>
-        </tr>
+            <td><input type="text" class="remarks" oninput="saveRemarks()"></td>
+        </tr
     </table>
 </body>
 </html>
